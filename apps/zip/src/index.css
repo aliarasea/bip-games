@@ -1,0 +1,63 @@
+@import "@bip-games/ui/src/theme.css";
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    /* Let the theme drive colors via CSS variables */
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    font-weight: 500;
+    color: var(--color-brand);
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: var(--color-brand-hover);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+/* Provide a neutral base for generic buttons; component library buttons use .primary-button */
+button {
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color 0.25s,
+    background-color 0.2s ease;
+}
+
+button:hover {
+    border-color: var(--color-brand-hover);
+}
+
+button:focus,
+button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}

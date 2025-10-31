@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.2",
+    "@types/node": "^24.9.2",
+    "stylelint": "^16.25.0",
+    "typescript": "^5.9.3"
+  },
+  "name": "bip-games",
+  "packageManager": "pnpm@10.18.3",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --stream -r build",
+    "dev": "pnpm --stream -r --parallel dev",
+    "lint": "pnpm -r lint",
+    "clean": "pnpm -r clean"
+  },
+  "version": "0.0.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
