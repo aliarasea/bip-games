@@ -1,0 +1,350 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.App {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #03a9f4;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: left;
+}
+
+.language-dropdown {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.language-dropdown:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.language-dropdown:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.language-dropdown option {
+  background: #03a9f4;
+  color: #fff;
+  padding: 8px;
+}
+
+main {
+  padding: 15px 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #e3f2fd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0277bd;
+  border: 2px solid #03a9f4;
+}
+
+.words-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.word-box {
+  background: #b3e5fc;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  cursor: move;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.word-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(3, 169, 244, 0.3);
+}
+
+.word-box.locked {
+  background: #e0e0e0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.word-box.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.word-box.active {
+  border: 2px solid #0288d1;
+  background: #4fc3f7;
+  box-shadow: 0 0 12px rgba(2, 136, 209, 0.4);
+}
+
+.word-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: #333;
+}
+
+/* Harf inputları için container */
+.letters-container {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Her bir harf input kutusu */
+.letter-input {
+  width: 36px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #03a9f4;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.letter-input:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 8px rgba(2, 136, 209, 0.4);
+  transform: scale(1.05);
+}
+
+.letter-input:disabled {
+  background: #f5f5f5;
+  border-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* İpucu ile açılan harfler */
+.letter-input.revealed {
+  background: #e3f2fd;
+  border-color: #0288d1;
+  color: #0277bd;
+  font-weight: 700;
+}
+
+/* Kelime tamamlandığında tüm harfler */
+.letter-box {
+  width: 36px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+.letter-box.revealed {
+  background: #c8e6c9;
+  border-color: #4caf50;
+}
+
+/* Henüz aktif olmayan kelimeler için gizli kutular */
+.letter-box.hidden {
+  background: #e0e0e0;
+  border-color: #bdbdbd;
+  color: #9e9e9e;
+  font-size: 1.1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+}
+
+.reveal-row-btn {
+  background-color: #0288d1;
+}
+
+.reveal-row-btn:hover {
+  background-color: #0277bd;
+}
+
+.hint-btn {
+  background-color: #03a9f4;
+}
+
+.hint-btn:hover {
+  background-color: #0288d1;
+}
+
+.control-btn:active {
+  transform: translateY(1px);
+}
+
+.hint-display {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.hint-display p {
+  margin: 0;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.guess-section {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.guess-input {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.guess-button {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.game-complete {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+  min-width: 280px;
+}
+
+.game-complete h2 {
+  margin: 0 0 20px 0;
+  color: #03a9f4;
+  font-size: 2rem;
+}
+
+.game-complete p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.restart-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.restart-btn:hover {
+  background-color: #0288d1;
+}
+
+@media (max-width: 600px) {
+  .App {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+  
+  header h1 {
+    font-size: 20px;
+  }
+  
+  .word-display {
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+  }
+
+  .letter-input {
+    width: 36px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .letter-box {
+    width: 36px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .letters-container {
+    gap: 5px;
+  }
+  
+  main {
+    padding: 12px 15px;
+  }
+}

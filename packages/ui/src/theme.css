@@ -1,6 +1,9 @@
 :root {
     /* Base brand */
     --c-blue-50: #e5f8fd;
+    --c-blue-100: #b3e5fc;
+    --c-blue-200: #4fc3f7;
+    --c-blue-300: #6ba3d9;
     --c-blue-400: #27bdf2;
     --c-blue-500: #00aeef;
     --c-blue-600: #0099d6;

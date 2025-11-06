@@ -1,0 +1,498 @@
+
+.App {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  color: var(--color-text);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: var(--color-brand);
+  color: var(--color-text-inverse);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: left;
+}
+
+.language-dropdown {
+  background: color-mix(in srgb, var(--c-blue-500) 10%, transparent);
+  border: 2px solid color-mix(in srgb, var(--c-blue-500) 30%, transparent);
+  border-radius: 8px;
+  color: var(--c-blue-600);
+  padding: 10px 15px;
+  padding-inline-end: 28px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  outline: none;
+  height: auto;
+}
+
+.language-dropdown:hover {
+  border-color: var(--color-brand);
+}
+
+.language-dropdown:focus {
+  border-color: var(--color-brand);
+  box-shadow: var(--shadow-focus);
+}
+
+.language-dropdown option {
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 8px;
+}
+
+.help-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--color-text-inverse);
+  color: var(--color-text-inverse);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.help-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+main {
+  padding: 15px 20px;
+  background-color: var(--color-bg);
+}
+
+.game-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.language-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown-wrapper::after {
+  content: "▾";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--c-blue-600);
+  font-size: 14px;
+}
+
+.language-dropdown {
+  background: color-mix(in srgb, var(--c-blue-500) 10%, transparent);
+  border: 2px solid color-mix(in srgb, var(--c-blue-500) 30%, transparent);
+  border-radius: 8px;
+  color: var(--c-blue-600);
+  padding: 10px 36px 10px 15px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  outline: none;
+  height: auto;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.language-dropdown:hover {
+  border-color: var(--color-brand);
+}
+
+.language-dropdown:focus {
+  border-color: var(--color-brand);
+  box-shadow: var(--shadow-focus);
+}
+
+.stats {
+  display: flex;
+  gap: 15px;
+  padding: 10px 15px;
+  background: color-mix(in srgb, var(--c-blue-500) 10%, transparent);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-blue-600);
+  border: 2px solid color-mix(in srgb, var(--c-blue-500) 30%, transparent);
+}
+
+.words-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.word-box {
+  background: var(--c-blue-50);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  cursor: move;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  min-height: 56px;
+}
+
+.word-box .drag-handle {
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  cursor: grab;
+  user-select: none;
+  width: 20px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+  position: absolute;
+  left: 8px;
+}
+
+.word-box .drag-handle:active {
+  cursor: grabbing;
+}
+
+.word-box:hover .drag-handle {
+  color: var(--color-brand);
+}
+
+
+
+/* Yanlış cevap animasyonu artık word-box'ta */
+.word-box.wrong-answer {
+  background-color: color-mix(in srgb, var(--color-error) 30%, transparent) !important;
+  border-color: var(--color-error) !important;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.word-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-brand) 30%, transparent);
+}
+
+.word-box.locked {
+  background: var(--color-bg-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.word-box.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.word-box.active {
+  border: 2px solid var(--color-brand-hover);
+  background: var(--color-brand-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--color-brand) 40%, transparent);
+}
+
+.word-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: var(--color-text);
+}
+
+/* Harf inputları için container */
+.letters-container {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 4px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+/* Her bir harf input kutusu */
+.letter-input {
+  width: 36px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid var(--color-brand);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.letter-input:focus {
+  border-color: var(--color-brand-hover);
+  box-shadow: var(--shadow-focus);
+  transform: scale(1.05);
+}
+
+.letter-input:disabled {
+  background: var(--color-bg-muted);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+/* İpucu ile açılan harfler */
+.letter-input.revealed {
+  background: color-mix(in srgb, var(--c-blue-500) 10%, transparent);
+  border-color: var(--c-blue-500);
+  color: var(--c-blue-600);
+  font-weight: 700;
+}
+
+/* Kelime tamamlandığında tüm harfler */
+.letter-box {
+  width: 36px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid var(--c-green-500);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c-green-500) 20%, transparent);
+  color: var(--c-green-500);
+}
+
+.letter-box.revealed {
+  background: color-mix(in srgb, var(--color-success) 30%, transparent);
+  border-color: var(--color-success);
+}
+
+/* Henüz aktif olmayan kelimeler için gizli kutular */
+.letter-box.hidden {
+  background: var(--color-bg-muted);
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-text-inverse);
+}
+
+.reveal-row-btn {
+  background-color: var(--color-brand-hover);
+}
+
+.reveal-row-btn:hover {
+  background-color: var(--color-brand);
+  transform: translateY(-1px);
+}
+
+.hint-btn {
+  background-color: var(--color-brand);
+}
+
+.hint-btn:hover {
+  background-color: var(--color-brand-hover);
+  transform: translateY(-1px);
+}
+
+.control-btn:active {
+  transform: translateY(1px);
+}
+
+.hint-display {
+  background: var(--color-bg-muted);
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  margin-bottom: 10px;
+  color: var(--color-text-secondary);
+}
+
+.hint-display p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.guess-section {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.guess-input {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.guess-button {
+  display: none; /* Artık kullanılmıyor */
+}
+
+.game-complete {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-surface);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1000;
+  min-width: 280px;
+}
+
+.game-complete h2 {
+  margin: 0 0 20px 0;
+  color: var(--color-brand);
+  font-size: 2rem;
+}
+
+.game-complete p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.restart-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: var(--color-brand);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.restart-btn:hover {
+  background-color: var(--color-brand-hover);
+}
+
+/* Dark mode için daha soft renkler */
+@media (prefers-color-scheme: dark) {
+  .stats {
+    background: color-mix(in srgb, var(--c-blue-600) 15%, transparent);
+    color: var(--c-blue-400);
+    border-color: color-mix(in srgb, var(--c-blue-500) 30%, transparent);
+  }
+
+  .word-box {
+    background: color-mix(in srgb, var(--c-blue-600) 10%, var(--color-surface));
+  }
+
+  .word-box.active {
+    background: color-mix(in srgb, var(--c-blue-500) 20%, var(--color-surface));
+    border-color: var(--c-blue-400);
+  }
+
+  .letter-input.revealed {
+    background: color-mix(in srgb, var(--c-blue-600) 20%, var(--color-surface));
+    border-color: color-mix(in srgb, var(--c-blue-500) 40%, transparent);
+    color: var(--c-blue-400);
+  }
+
+  .letter-box {
+    background: color-mix(in srgb, var(--c-green-500) 20%, var(--color-surface));
+    border-color: color-mix(in srgb, var(--c-green-500) 40%, transparent);
+    color: var(--c-green-500);
+  }
+
+  .letter-box.revealed {
+    background: color-mix(in srgb, var(--c-green-500) 15%, var(--color-surface));
+    border-color: color-mix(in srgb, var(--c-green-500) 30%, transparent);
+  }
+}
+
+@media (max-width: 600px) {
+  .App {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+  
+  header h1 {
+    font-size: 20px;
+  }
+  
+  .word-display {
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+  }
+
+  .letter-input {
+    width: 36px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .letter-box {
+    width: 36px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .letters-container {
+    gap: 5px;
+  }
+  
+  main {
+    padding: 12px 15px;
+  }
+}

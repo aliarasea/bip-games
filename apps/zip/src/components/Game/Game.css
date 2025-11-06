@@ -257,3 +257,26 @@
         transition: none;
     }
 }
+
+/* Dark mode kontrast düzenlemeleri */
+@media (prefers-color-scheme: dark) {
+    .game-header {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .completion-message {
+        background-color: color-mix(in srgb, var(--color-success) 15%, transparent);
+    }
+
+    .completion-message h2 {
+        color: color-mix(in srgb, var(--color-success) 60%, var(--color-text) 40%);
+    }
+
+    .completion-message p {
+        color: color-mix(in srgb, var(--color-success) 50%, var(--color-text) 50%);
+    }
+
+    .loading-overlay {
+        background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
+    }
+}

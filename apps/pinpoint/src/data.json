@@ -1,0 +1,318 @@
+[
+    {
+        "category": "Film Türleri",
+        "acceptedAnswers": [
+            "Film Türleri",
+            "Film Türü",
+            "Film Kategorileri",
+            "Sinema Türleri"
+        ],
+        "hints": [
+            "Gerilim",
+            "Aksiyon",
+            "Korku",
+            "Komedi",
+            "Drama"
+        ]
+    },
+    {
+        "category": "Meyveler",
+        "acceptedAnswers": [
+            "Meyveler",
+            "Meyve",
+            "Meyvalar"
+        ],
+        "hints": [
+            "Elma",
+            "Muz",
+            "Portakal",
+            "Üzüm",
+            "Mango"
+        ]
+    },
+    {
+        "category": "Ülkeler",
+        "acceptedAnswers": [
+            "Ülkeler",
+            "Ülke",
+            "Devletler",
+            "Devlet"
+        ],
+        "hints": [
+            "Türkiye",
+            "ABD",
+            "Almanya",
+            "Fransa",
+            "İtalya"
+        ]
+    },
+    {
+        "category": "Hayvanlar",
+        "acceptedAnswers": [
+            "Hayvanlar",
+            "Hayvan",
+            "Canlılar"
+        ],
+        "hints": [
+            "Köpek",
+            "Kedi",
+            "Fil",
+            "Aslan",
+            "Kaplan"
+        ]
+    },
+    {
+        "category": "Renkler",
+        "acceptedAnswers": [
+            "Renkler",
+            "Renk"
+        ],
+        "hints": [
+            "Kırmızı",
+            "Mavi",
+            "Yeşil",
+            "Sarı",
+            "Mor"
+        ]
+    },
+    {
+        "category": "Müzik Türleri",
+        "acceptedAnswers": [
+            "Müzik Türleri",
+            "Müzik Türü",
+            "Müzik Stilleri",
+            "Müzik Janrları"
+        ],
+        "hints": [
+            "Rock",
+            "Pop",
+            "Caz",
+            "Klasik",
+            "Rap"
+        ]
+    },
+    {
+        "category": "Spor Dalları",
+        "acceptedAnswers": [
+            "Spor Dalları",
+            "Spor Dalı",
+            "Sporlar",
+            "Spor"
+        ],
+        "hints": [
+            "Futbol",
+            "Basketbol",
+            "Tenis",
+            "Yüzme",
+            "Voleybol"
+        ]
+    },
+    {
+        "category": "Sebzeler",
+        "acceptedAnswers": [
+            "Sebzeler",
+            "Sebze",
+            "Sebzeler"
+        ],
+        "hints": [
+            "Domates",
+            "Salatalık",
+            "Havuç",
+            "Patlıcan",
+            "Biber"
+        ]
+    },
+    {
+        "category": "Meslek Grupları",
+        "acceptedAnswers": [
+            "Meslek Grupları",
+            "Meslekler",
+            "Meslek",
+            "Meslek Gruplar"
+        ],
+        "hints": [
+            "Doktor",
+            "Öğretmen",
+            "Mühendis",
+            "Avukat",
+            "Hemşire"
+        ]
+    },
+    {
+        "category": "Ulaşım Araçları",
+        "acceptedAnswers": [
+            "Ulaşım Araçları",
+            "Ulaşım Aracı",
+            "Taşıtlar",
+            "Taşıt",
+            "Vasıtalar"
+        ],
+        "hints": [
+            "Otobüs",
+            "Metro",
+            "Uçak",
+            "Gemi",
+            "Tren"
+        ]
+    },
+    {
+        "category": "Mevsimler ve Dönemler",
+        "acceptedAnswers": [
+            "Mevsimler",
+            "Mevsim",
+            "Mevsimler ve Dönemler",
+            "Dönemler"
+        ],
+        "hints": [
+            "İlkbahar",
+            "Yaz",
+            "Sonbahar",
+            "Kış",
+            "Güz"
+        ]
+    },
+    {
+        "category": "Giyim Eşyaları",
+        "acceptedAnswers": [
+            "Giyim Eşyaları",
+            "Giyim Eşyası",
+            "Giysiler",
+            "Kıyafetler",
+            "Giyecekler"
+        ],
+        "hints": [
+            "Tişört",
+            "Pantolon",
+            "Ceket",
+            "Etek",
+            "Ayakkabı"
+        ]
+    },
+    {
+        "category": "Mutfak Eşyaları",
+        "acceptedAnswers": [
+            "Mutfak Eşyaları",
+            "Mutfak Eşyası",
+            "Mutfak Gereçleri"
+        ],
+        "hints": [
+            "Tencere",
+            "Tava",
+            "Bıçak",
+            "Çatal",
+            "Kaşık"
+        ]
+    },
+    {
+        "category": "Elektronik Cihazlar",
+        "acceptedAnswers": [
+            "Elektronik Cihazlar",
+            "Elektronik Cihaz",
+            "Elektronik Aletler",
+            "Teknolojik Cihazlar"
+        ],
+        "hints": [
+            "Telefon",
+            "Bilgisayar",
+            "Tablet",
+            "Televizyon",
+            "Kulaklık"
+        ]
+    },
+    {
+        "category": "Duygular",
+        "acceptedAnswers": [
+            "Duygular",
+            "Duygu",
+            "Hisler",
+            "His"
+        ],
+        "hints": [
+            "Mutluluk",
+            "Üzüntü",
+            "Öfke",
+            "Korku",
+            "Heyecan"
+        ]
+    },
+    {
+        "category": "Okul Dersleri",
+        "acceptedAnswers": [
+            "Okul Dersleri",
+            "Dersler",
+            "Ders",
+            "Okul Dersi"
+        ],
+        "hints": [
+            "Matematik",
+            "Türkçe",
+            "Fen",
+            "Tarih",
+            "Coğrafya"
+        ]
+    },
+    {
+        "category": "Şehirler",
+        "acceptedAnswers": [
+            "Şehirler",
+            "Şehir",
+            "Kentler",
+            "Kent"
+        ],
+        "hints": [
+            "İstanbul",
+            "Ankara",
+            "İzmir",
+            "Antalya",
+            "Bursa"
+        ]
+    },
+    {
+        "category": "İçecekler",
+        "acceptedAnswers": [
+            "İçecekler",
+            "İçecek",
+            "İçkiler"
+        ],
+        "hints": [
+            "Çay",
+            "Kahve",
+            "Su",
+            "Meyve Suyu",
+            "Kola"
+        ]
+    },
+    {
+        "category": "Müzik Enstrümanları",
+        "acceptedAnswers": [
+            "Müzik Enstrümanları",
+            "Müzik Enstrümanı",
+            "Enstrümanlar",
+            "Çalgılar",
+            "Müzik Aletleri"
+        ],
+        "hints": [
+            "Gitar",
+            "Piyano",
+            "Keman",
+            "Davul",
+            "Flüt"
+        ]
+    },
+    {
+        "category": "Hava Durumu",
+        "acceptedAnswers": [
+            "Hava Durumu",
+            "Hava Durumları",
+            "Hava",
+            "Hava Olayları"
+        ],
+        "hints": [
+            "Güneşli",
+            "Yağmurlu",
+            "Karlı",
+            "Rüzgarlı",
+            "Bulutlu"
+        ]
+    }
+]

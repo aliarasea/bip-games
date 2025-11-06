@@ -1,4 +1,5 @@
 import "./theme.css";
 
 export * from "./Button";
-export {default as Label} from "./Label";
+export * from "./Modal";
+export { default as Label } from "./Label";

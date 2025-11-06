@@ -1,0 +1,87 @@
+# Boilerplate .gitignore for web projects (Node / JS / TS / React / Vue / Angular)
+
+# Node modules
+node_modules/
+.pnp/
+.pnp.cjs
+.pnp.js
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Build / output
+dist/
+build/
+out/
+public/build/
+lib/
+es/
+esm/
+types/
+*.tsbuildinfo
+*.map
+
+# Framework / bundler caches
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+.cache/
+.parcel-cache/
+.cache-loader/
+.storybook-static/
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Archives / packages
+*.tgz
+
+# Misc
+*.tmp
+*.temp
+*.local
+*.swp
+*.bak
+
+# Deployment / hosting
+.vercel/
+.netlify/
+.now/
+
+.DS_Store
+
+.idea
+pnpm-lock.yaml

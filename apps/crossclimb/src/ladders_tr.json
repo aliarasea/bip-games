@@ -1,0 +1,274 @@
+[
+    {
+        "id": 1,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "KALE",
+                "hint": "Savunma yapısı, sur ile çevrili"
+            },
+            {
+                "word": "KULE",
+                "hint": "Yüksek yapı, gözetleme yeri"
+            },
+            {
+                "word": "KÜLE",
+                "hint": "Kül haline gelmek"
+            },
+            {
+                "word": "KÜPE",
+                "hint": "Kulakta takılan süs eşyası"
+            },
+            {
+                "word": "KÖPE",
+                "hint": "Eski söyleyişte köpek"
+            },
+            {
+                "word": "KÖŞE",
+                "hint": "İki duvarın kesiştiği yer"
+            },
+            {
+                "word": "GÖŞE",
+                "hint": "Gözün köşesi (ağız)"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "DEVE",
+                "hint": "Çölde yaşayan hörgüçlü hayvan"
+            },
+            {
+                "word": "DERE",
+                "hint": "Küçük akarsu, çay"
+            },
+            {
+                "word": "PERE",
+                "hint": "Pervane"
+            },
+            {
+                "word": "PIRE",
+                "hint": "Küçük parazit böcek"
+            },
+            {
+                "word": "TIRE",
+                "hint": "İzmir'de bir ilçe"
+            },
+            {
+                "word": "TERE",
+                "hint": "Yeşil yapraklı sebze"
+            },
+            {
+                "word": "KERE",
+                "hint": "Defa, sefer"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "KARA",
+                "hint": "Siyah renk"
+            },
+            {
+                "word": "KURA",
+                "hint": "Çekiliş, şans oyunu"
+            },
+            {
+                "word": "KURU",
+                "hint": "Nem içermeyen, susuz"
+            },
+            {
+                "word": "KUTU",
+                "hint": "İçine eşya konulan kap"
+            },
+            {
+                "word": "KÜTU",
+                "hint": "Kötü, uğursuz"
+            },
+            {
+                "word": "KÜTÜ",
+                "hint": "Kısa ve kalın"
+            },
+            {
+                "word": "ÖRTÜ",
+                "hint": "Üstü örten şey"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "wordLength": 5,
+        "ladder": [
+            {
+                "word": "BARIS",
+                "hint": "Savaş olmayan durum, huzur"
+            },
+            {
+                "word": "PARIS",
+                "hint": "Fransa'nın başkenti"
+            },
+            {
+                "word": "PARES",
+                "hint": "Ufak parça"
+            },
+            {
+                "word": "PALET",
+                "hint": "Ressam boya tahtası"
+            },
+            {
+                "word": "PAKET",
+                "hint": "Ambalajlı mal, koli"
+            },
+            {
+                "word": "RAKET",
+                "hint": "Tenis aleti"
+            },
+            {
+                "word": "ROKET",
+                "hint": "Uzaya fırlayan araç"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "wordLength": 5,
+        "ladder": [
+            {
+                "word": "KALEM",
+                "hint": "Yazı yazma aleti"
+            },
+            {
+                "word": "KAREM",
+                "hint": "Bilardo oyununda sayı"
+            },
+            {
+                "word": "HAREM",
+                "hint": "Sarayda kadınların bölümü"
+            },
+            {
+                "word": "HAKEM",
+                "hint": "Spor müsabakalarını yöneten"
+            },
+            {
+                "word": "MAKEM",
+                "hint": "Türk müziğinde ses dizisi"
+            },
+            {
+                "word": "MATEM",
+                "hint": "Ölüm acısı, yas"
+            },
+            {
+                "word": "HATEM",
+                "hint": "Son, bitiş"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "wordLength": 5,
+        "ladder": [
+            {
+                "word": "MASAL",
+                "hint": "Hayal ürünü hikaye"
+            },
+            {
+                "word": "HAMAL",
+                "hint": "Yük taşıyan işçi"
+            },
+            {
+                "word": "KANAL",
+                "hint": "Yapay su yolu"
+            },
+            {
+                "word": "KANAT",
+                "hint": "Kuşların uçma organı"
+            },
+            {
+                "word": "SANAT",
+                "hint": "Estetik ürün yaratma"
+            },
+            {
+                "word": "SAKAT",
+                "hint": "Özürlü, kusurlu"
+            },
+            {
+                "word": "TAKAT",
+                "hint": "Güç, kuvvet"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "wordLength": 5,
+        "ladder": [
+            {
+                "word": "BAHAR",
+                "hint": "İlkbahar mevsimi"
+            },
+            {
+                "word": "TAHAR",
+                "hint": "Dinsel arınma"
+            },
+            {
+                "word": "TATAR",
+                "hint": "Türk halkı"
+            },
+            {
+                "word": "PAZAR",
+                "hint": "Haftanın yedinci günü"
+            },
+            {
+                "word": "YAZAN",
+                "hint": "Yazı yazan kişi"
+            },
+            {
+                "word": "KAZAN",
+                "hint": "Büyük pişirme kabı"
+            },
+            {
+                "word": "KACAN",
+                "hint": "Kaçan kişi"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "wordLength": 6,
+        "ladder": [
+            {
+                "word": "BALIGA",
+                "hint": "Balığa ait, balıkla ilgili"
+            },
+            {
+                "word": "BALINA",
+                "hint": "Dev deniz memelisi"
+            },
+            {
+                "word": "MALINA",
+                "hint": "Mala ait olan"
+            },
+            {
+                "word": "MACINA",
+                "hint": "Maç ile ilgili"
+            },
+            {
+                "word": "MAKINA",
+                "hint": "İş yapan mekanik alet"
+            },
+            {
+                "word": "SAKINA",
+                "hint": "Sakin olan (dişi)"
+            },
+            {
+                "word": "HAKINA",
+                "hint": "Hak ile ilgili"
+            }
+        ]
+    }
+]

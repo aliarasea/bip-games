@@ -1,0 +1,410 @@
+[
+    {
+        "id": 1,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "COLD",
+                "hint": "Low temperature"
+            },
+            {
+                "word": "CORD",
+                "hint": "Rope or string"
+            },
+            {
+                "word": "CARD",
+                "hint": "Playing piece"
+            },
+            {
+                "word": "CART",
+                "hint": "Shopping vehicle"
+            },
+            {
+                "word": "CAST",
+                "hint": "Throw something"
+            },
+            {
+                "word": "COST",
+                "hint": "Price or expense"
+            },
+            {
+                "word": "MOST",
+                "hint": "Greatest amount"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "WORD",
+                "hint": "Unit of language"
+            },
+            {
+                "word": "WORK",
+                "hint": "Labor or job"
+            },
+            {
+                "word": "PORK",
+                "hint": "Meat from pig"
+            },
+            {
+                "word": "PORE",
+                "hint": "Tiny skin opening"
+            },
+            {
+                "word": "POSE",
+                "hint": "Strike a position"
+            },
+            {
+                "word": "LOSE",
+                "hint": "Fail to win"
+            },
+            {
+                "word": "LOVE",
+                "hint": "Deep affection"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "FARM",
+                "hint": "Agricultural land"
+            },
+            {
+                "word": "WARM",
+                "hint": "Pleasantly hot"
+            },
+            {
+                "word": "WART",
+                "hint": "Skin growth"
+            },
+            {
+                "word": "WAIT",
+                "hint": "Stay in place"
+            },
+            {
+                "word": "BAIT",
+                "hint": "Fishing lure"
+            },
+            {
+                "word": "BAIL",
+                "hint": "Court release"
+            },
+            {
+                "word": "BALL",
+                "hint": "Round object"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "TALE",
+                "hint": "Story or narrative"
+            },
+            {
+                "word": "TAME",
+                "hint": "Not wild"
+            },
+            {
+                "word": "CAME",
+                "hint": "Past of come"
+            },
+            {
+                "word": "CAKE",
+                "hint": "Sweet baked dessert"
+            },
+            {
+                "word": "CANE",
+                "hint": "Walking stick"
+            },
+            {
+                "word": "LANE",
+                "hint": "Narrow road"
+            },
+            {
+                "word": "LATE",
+                "hint": "After the time"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "HEAD",
+                "hint": "Top of body"
+            },
+            {
+                "word": "HEAR",
+                "hint": "Perceive sound"
+            },
+            {
+                "word": "DEAR",
+                "hint": "Beloved one"
+            },
+            {
+                "word": "BEAR",
+                "hint": "Large mammal"
+            },
+            {
+                "word": "BEAN",
+                "hint": "Legume seed"
+            },
+            {
+                "word": "LEAN",
+                "hint": "Thin or tilt"
+            },
+            {
+                "word": "LEAD",
+                "hint": "Guide or metal"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "FIRE",
+                "hint": "Burning flames"
+            },
+            {
+                "word": "FARE",
+                "hint": "Travel cost"
+            },
+            {
+                "word": "CARE",
+                "hint": "Concern or worry"
+            },
+            {
+                "word": "CORE",
+                "hint": "Central part"
+            },
+            {
+                "word": "WORE",
+                "hint": "Past of wear"
+            },
+            {
+                "word": "WIRE",
+                "hint": "Metal thread"
+            },
+            {
+                "word": "WISE",
+                "hint": "Having knowledge"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "DARK",
+                "hint": "Absence of light"
+            },
+            {
+                "word": "MARK",
+                "hint": "Written symbol"
+            },
+            {
+                "word": "MARE",
+                "hint": "Female horse"
+            },
+            {
+                "word": "MORE",
+                "hint": "Greater quantity"
+            },
+            {
+                "word": "MOVE",
+                "hint": "Change position"
+            },
+            {
+                "word": "DOVE",
+                "hint": "Peace bird"
+            },
+            {
+                "word": "DONE",
+                "hint": "Completed"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "GOLD",
+                "hint": "Precious metal"
+            },
+            {
+                "word": "FOLD",
+                "hint": "Bend over"
+            },
+            {
+                "word": "FOOD",
+                "hint": "What we eat"
+            },
+            {
+                "word": "GOOD",
+                "hint": "Positive quality"
+            },
+            {
+                "word": "WOOD",
+                "hint": "Tree material"
+            },
+            {
+                "word": "WOOL",
+                "hint": "Sheep fiber"
+            },
+            {
+                "word": "COOL",
+                "hint": "Somewhat cold"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "MAKE",
+                "hint": "Create or build"
+            },
+            {
+                "word": "MALE",
+                "hint": "Opposite of female"
+            },
+            {
+                "word": "MILE",
+                "hint": "Distance unit"
+            },
+            {
+                "word": "MINE",
+                "hint": "Belongs to me"
+            },
+            {
+                "word": "MINT",
+                "hint": "Fresh herb"
+            },
+            {
+                "word": "HINT",
+                "hint": "Subtle clue"
+            },
+            {
+                "word": "HUNT",
+                "hint": "Search for prey"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "PAIN",
+                "hint": "Physical hurt"
+            },
+            {
+                "word": "RAIN",
+                "hint": "Water from sky"
+            },
+            {
+                "word": "GAIN",
+                "hint": "Obtain or earn"
+            },
+            {
+                "word": "GRIN",
+                "hint": "Big smile"
+            },
+            {
+                "word": "GRID",
+                "hint": "Pattern of lines"
+            },
+            {
+                "word": "GRIM",
+                "hint": "Dark and serious"
+            },
+            {
+                "word": "TRIM",
+                "hint": "Cut edges"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "HATE",
+                "hint": "Strong dislike"
+            },
+            {
+                "word": "HAVE",
+                "hint": "To possess"
+            },
+            {
+                "word": "WAVE",
+                "hint": "Ocean movement"
+            },
+            {
+                "word": "WAKE",
+                "hint": "Stop sleeping"
+            },
+            {
+                "word": "WALK",
+                "hint": "Move on foot"
+            },
+            {
+                "word": "TALK",
+                "hint": "Speak words"
+            },
+            {
+                "word": "TALE",
+                "hint": "A story"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "wordLength": 4,
+        "ladder": [
+            {
+                "word": "LAND",
+                "hint": "Solid ground"
+            },
+            {
+                "word": "SAND",
+                "hint": "Beach material"
+            },
+            {
+                "word": "SEND",
+                "hint": "Mail something"
+            },
+            {
+                "word": "SEED",
+                "hint": "Plant starter"
+            },
+            {
+                "word": "NEED",
+                "hint": "Require something"
+            },
+            {
+                "word": "FEED",
+                "hint": "Give food to"
+            },
+            {
+                "word": "FEET",
+                "hint": "Plural of foot"
+            }
+        ]
+    }
+]

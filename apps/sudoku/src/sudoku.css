@@ -186,3 +186,28 @@
 	font-size: 0.75rem;
 	color: var(--color-text-secondary);
 }
+
+/* Dark mode kontrast düzenlemeleri */
+@media (prefers-color-scheme: dark) {
+	.sudoku-board {
+		box-shadow:
+			0 2px 4px rgba(0, 0, 0, 0.3),
+			0 4px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.cell-btn[data-selected] {
+		background: color-mix(in srgb, var(--color-brand) 15%, transparent);
+	}
+
+	.cell-btn:hover:not([disabled]) {
+		background: color-mix(in srgb, var(--color-text) 8%, transparent);
+	}
+
+	.cell-btn[data-conflict] {
+		background: color-mix(in srgb, var(--color-error) 20%, transparent);
+	}
+
+	.game-complete {
+		background: color-mix(in srgb, var(--color-success) 15%, transparent);
+	}
+}
