@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Modal } from "@bip-games/ui";
+import { Modal, Results, type GameResultData } from "@bip-games/ui";
 import "./App.css";
 import data from "./data.json";
 
@@ -10,6 +10,13 @@ function App() {
   const [currentHintIndex, setCurrentHintIndex] = useState(0);
   const [attempts, setAttempts] = useState(0);
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [gameResult, setGameResult] = useState<{
+    isWin: boolean;
+    attempts: number;
+    hintsUsed: number;
+    category: string;
+  } | null>(null);
   const [resultModal, setResultModal] = useState({
     isOpen: false,
     title: "",
@@ -51,6 +58,8 @@ function App() {
     setHints(shuffleArray(selectedCategory.hints)); // Hint'leri rastgele sırala
     setCurrentHintIndex(0);
     setAttempts(0);
+    setShowResults(false);
+    setGameResult(null);
   };
 
   useEffect(() => {
@@ -74,25 +83,91 @@ function App() {
     );
 
     if (isCorrect) {
-      setResultModal({
-        isOpen: true,
-        title: "🎉 Tebrikler!",
-        message: `${attempts + 1} tahminde doğru bildiniz!`,
+      setGameResult({
+        isWin: true,
+        attempts: attempts + 1,
+        hintsUsed: currentHintIndex + 1,
+        category: currentCategory,
       });
-      setTimeout(() => startGame(), 2000);
+      setTimeout(() => setShowResults(true), 500);
     } else {
       if (currentHintIndex < hints.length - 1) {
         setCurrentHintIndex(currentHintIndex + 1);
       } else {
-        setResultModal({
-          isOpen: true,
-          title: "😔 Oyun Bitti",
-          message: `Maalesef, doğru tahmini yapamadınız.\nDoğru cevap: ${currentCategory}`,
+        setGameResult({
+          isWin: false,
+          attempts: attempts + 1,
+          hintsUsed: hints.length,
+          category: currentCategory,
         });
-        setTimeout(() => startGame(), 2000);
+        setTimeout(() => setShowResults(true), 500);
       }
     }
   };
+
+  // Results verilerini hazırla
+  const resultData: GameResultData | null = gameResult
+    ? {
+        gameName: "Pinpoint",
+        gameIcon: "📍",
+        isWin: gameResult.isWin,
+        celebrationMessage: gameResult.isWin
+          ? "🎉 Harika Tahmin!"
+          : "😔 Bir Sonraki Sefer!",
+        message: `Kategori: ${gameResult.category}`,
+        metrics: [
+          {
+            label: "Tahmin Sayısı",
+            value: gameResult.attempts,
+            icon: "🎲",
+          },
+          {
+            label: "Kullanılan İpucu",
+            value: `${gameResult.hintsUsed}/5`,
+            icon: "💡",
+          },
+          {
+            label: "Sonuç",
+            value: gameResult.isWin ? "Doğru!" : "Yanlış",
+            icon: gameResult.isWin ? "✅" : "❌",
+          },
+        ],
+      }
+    : null;
+
+  // Results gösteriliyorsa onu render et
+  if (showResults && resultData) {
+    return (
+      <Results
+        resultData={resultData}
+        onPlayAgain={() => {
+          setShowResults(false);
+          startGame();
+        }}
+        onShare={() => {
+          const message = `📍 Pinpoint'te kategoriyi ${
+            resultData.isWin ? "buldum" : "bulamadım"
+          }!\n\n� Tahmin: ${gameResult?.attempts}\n💡 İpucu: ${
+            gameResult?.hintsUsed
+          }/5\n\nSen de oyna: https://bip-pinpoint.netlify.app/`;
+          // BiP deep link
+          window.location.href = `bip://share?text=${encodeURIComponent(
+            message
+          )}`;
+        }}
+        onShareStatus={() => {
+          const statusText = `📍 Pinpoint'te kategoriyi ${
+            resultData.isWin ? "buldum" : "bulamadım"
+          }!`;
+          // BiP status deep link
+          window.location.href = `bip://status?text=${encodeURIComponent(
+            statusText
+          )}`;
+        }}
+        activeGame="Pinpoint"
+      />
+    );
+  }
 
   return (
     <div className="App">

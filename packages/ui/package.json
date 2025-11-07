@@ -5,12 +5,10 @@
 	"main": "./src/index.ts",
 	"types": "./src/index.ts",
 	"exports": {
-		".": {
-			"import": "./src/index.ts",
-			"types": "./src/index.ts"
-		},
-		"./src/theme.css": "./src/theme.css",
-		"./src/Modal.css": "./src/Modal.css"
+		".": "./src/index.ts",
+		"./theme.css": "./src/theme.css",
+		"./Modal.css": "./src/Modal.css",
+		"./Results.css": "./src/Results.css"
 	},
 	"private": false,
 	"scripts": {
@@ -18,11 +16,11 @@
 		"lint": "eslint \"src/**/*.{ts,tsx}\""
 	},
 	"peerDependencies": {
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0"
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@types/react": "^19.2.2",
-		"@types/react-dom": "^19.2.2"
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.0"
 	}
 }

@@ -15,6 +15,15 @@
     --c-orange-500: #ff8a34;
     --c-purple-500: #7e57c2;
 
+    /* BiP Specific Colors */
+    --c-bip-blue: #03a9f4;
+    --c-bip-yellow: #ffd826;
+    --c-bip-pink: #df0080;
+    --c-bip-purple: #990dc6;
+    --c-bip-dark: #002231;
+    --c-bip-light-blue: #e8f6fd;
+    --c-bip-border: #cfeffd;
+
     /* Neutrals */
     --c-gray-50: #f5f8fa;
     --c-gray-100: #e9eff3;

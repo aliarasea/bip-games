@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Modal } from "@bip-games/ui";
+import { Modal, Results, type GameResultData } from "@bip-games/ui";
 import "./App.css";
 import dataEN from "./ladders_en.json";
 import dataTR from "./ladders_tr.json";
@@ -7,6 +7,7 @@ import dataTR from "./ladders_tr.json";
 function App() {
   const [language, setLanguage] = useState("en"); // 'en' veya 'tr'
   const data = language === "en" ? dataEN : dataTR;
+  const [showResults, setShowResults] = useState(false);
 
   const [gameState, setGameState] = useState({
     words: [],
@@ -128,8 +129,15 @@ function App() {
 
       const newRevealedLetters = [...currentRevealed, randomIndex];
 
+      // Kullanıcının doldurduğu harf sayısını say
+      const userFilledCount = userInput.filter((letter) => letter).length;
+      // Bu ipucuyla açılan toplam harf sayısı
+      const totalRevealedCount = newRevealedLetters.length;
+      // Sadece ipucuyla açılan harfleri say (kullanıcının yazdıklarını çıkar)
+      const hintCount = totalRevealedCount - userFilledCount;
+
       // Eğer bu son harf ise, kelimeyi tamamen revealed olarak işaretle
-      if (newRevealedLetters.length === wordLen) {
+      if (newRevealedLetters.length + userFilledCount >= wordLen) {
         const newWords = [...gameState.words];
         newWords[wordIndex].revealed = true;
 
@@ -171,7 +179,7 @@ function App() {
               setGameState({
                 ...gameState,
                 words: newWords,
-                guessedLetters: gameState.guessedLetters + 1,
+                guessedLetters: gameState.guessedLetters + hintCount,
                 startTime: gameState.timerStarted
                   ? gameState.startTime
                   : Date.now(),
@@ -192,19 +200,12 @@ function App() {
             words: newWords,
             endTime: Date.now(),
             isGameComplete: true,
-            guessedLetters: gameState.guessedLetters + 1,
+            guessedLetters: gameState.guessedLetters + hintCount,
           });
 
-          const finalTime = Math.floor(
-            (Date.now() - gameState.startTime) / 1000
-          );
+          // Results sayfasını göster
           setTimeout(() => {
-            showModal(
-              "🎉 Tebrikler!",
-              `Oyunu başarıyla tamamladınız!\n\nSüre: ${finalTime} saniye\nToplam Harf: ${
-                gameState.guessedLetters + 1
-              }`
-            );
+            setShowResults(true);
           }, 100);
           return;
         }
@@ -214,7 +215,7 @@ function App() {
           words: newWords,
           currentWordIndex: nextIndex,
           middleWordsSorted: newMiddleSorted,
-          guessedLetters: gameState.guessedLetters + 1,
+          guessedLetters: gameState.guessedLetters + hintCount,
           startTime: gameState.timerStarted ? gameState.startTime : Date.now(),
           timerStarted: true,
         });
@@ -226,7 +227,7 @@ function App() {
             ...gameState.revealedLetters,
             [wordIndex]: newRevealedLetters,
           },
-          guessedLetters: gameState.guessedLetters + 1,
+          guessedLetters: gameState.guessedLetters + 1, // İpucu 1 harf açar
           startTime: gameState.timerStarted ? gameState.startTime : Date.now(),
           timerStarted: true,
         });
@@ -238,6 +239,19 @@ function App() {
   const handleRevealRow = () => {
     const currentWord = gameState.words[gameState.currentWordIndex];
     if (currentWord.revealed) return;
+
+    const wordIndex = gameState.currentWordIndex;
+    const currentRevealed = gameState.revealedLetters[wordIndex] || [];
+    const userInput =
+      currentWord.userInput || Array(gameState.wordLength).fill("");
+
+    // Kullanıcının doldurduğu harf sayısını say
+    const userFilledCount = userInput.filter((letter) => letter).length;
+    // Daha önce ipucuyla açılmış harf sayısı
+    const previouslyRevealedCount = currentRevealed.length;
+    // Bu butonla açılacak harf sayısı = toplam - (kullanıcının yazdıkları + önceki ipuçları)
+    const revealingCount =
+      gameState.wordLength - userFilledCount - previouslyRevealedCount;
 
     const newWords = [...gameState.words];
     newWords[gameState.currentWordIndex].revealed = true;
@@ -283,7 +297,7 @@ function App() {
           }
           setGameState({
             ...gameState,
-            guessedLetters: gameState.guessedLetters + wordLen,
+            guessedLetters: gameState.guessedLetters + revealingCount,
             startTime: gameState.timerStarted
               ? gameState.startTime
               : Date.now(),
@@ -307,18 +321,12 @@ function App() {
         words: newWords,
         endTime: Date.now(),
         isGameComplete: true,
-        guessedLetters: gameState.guessedLetters + wordLen,
+        guessedLetters: gameState.guessedLetters + revealingCount,
       });
 
-      // Sonuç alert
-      const finalTime = Math.floor((Date.now() - gameState.startTime) / 1000);
+      // Results sayfasını göster
       setTimeout(() => {
-        showModal(
-          "🎉 Tebrikler!",
-          `Oyunu başarıyla tamamladınız!\n\nSüre: ${finalTime} saniye\nToplam Harf: ${
-            gameState.guessedLetters + wordLen
-          }`
-        );
+        setShowResults(true);
       }, 100);
       return;
     }
@@ -328,7 +336,7 @@ function App() {
       words: newWords,
       currentWordIndex: nextIndex,
       middleWordsSorted: newMiddleSorted,
-      guessedLetters: gameState.guessedLetters + wordLen,
+      guessedLetters: gameState.guessedLetters + revealingCount,
       // Timer'ı başlat (ilk buton)
       startTime: gameState.timerStarted ? gameState.startTime : Date.now(),
       timerStarted: true,
@@ -358,10 +366,86 @@ function App() {
     )
       return;
 
+    performSwap(draggedIndex, dropIndex);
+    setDraggedIndex(null);
+  };
+
+  // Touch events for mobile
+  const handleTouchStart = (e, index) => {
+    if (gameState.words[index].locked || !gameState.words[index].revealed)
+      return;
+    setDraggedIndex(index);
+    e.currentTarget.style.opacity = "0.5";
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const elementBelow = document.elementFromPoint(
+      touch.clientX,
+      touch.clientY
+    );
+    const wordBox = elementBelow?.closest(
+      ".word-box[data-word-index]"
+    ) as HTMLElement;
+
+    if (wordBox) {
+      const index = parseInt(wordBox.getAttribute("data-word-index") || "");
+      if (
+        !isNaN(index) &&
+        !gameState.words[index].locked &&
+        gameState.words[index].revealed
+      ) {
+        // Tüm word-box'ları normal yap
+        document.querySelectorAll(".word-box").forEach((box) => {
+          (box as HTMLElement).style.borderColor = "";
+        });
+        // Üzerinde olduğumuz kutuyu vurgula
+        wordBox.style.borderColor = "#03A9F4";
+      }
+    }
+  };
+
+  const handleTouchEnd = (e, startIndex) => {
+    e.currentTarget.style.opacity = "1";
+
+    // Tüm border renkleri temizle
+    document.querySelectorAll(".word-box").forEach((box) => {
+      (box as HTMLElement).style.borderColor = "";
+    });
+
+    if (draggedIndex === null) return;
+
+    const touch = e.changedTouches[0];
+    const elementBelow = document.elementFromPoint(
+      touch.clientX,
+      touch.clientY
+    );
+    const wordBox = elementBelow?.closest(
+      ".word-box[data-word-index]"
+    ) as HTMLElement;
+
+    if (wordBox) {
+      const dropIndex = parseInt(wordBox.getAttribute("data-word-index") || "");
+      if (!isNaN(dropIndex) && dropIndex !== draggedIndex) {
+        if (
+          !gameState.words[dropIndex].locked &&
+          gameState.words[dropIndex].revealed
+        ) {
+          performSwap(draggedIndex, dropIndex);
+        }
+      }
+    }
+
+    setDraggedIndex(null);
+  };
+
+  // Swap logic - separated for reuse
+  const performSwap = (fromIndex, toIndex) => {
     const newWords = [...gameState.words];
-    const draggedWord = newWords[draggedIndex];
-    newWords.splice(draggedIndex, 1);
-    newWords.splice(dropIndex, 0, draggedWord);
+    const draggedWord = newWords[fromIndex];
+    newWords.splice(fromIndex, 1);
+    newWords.splice(toIndex, 0, draggedWord);
 
     // Ortadaki 5 kelime tamamlandıysa ve henüz sıralama kontrolü yapılmadıysa kontrol et
     if (!gameState.middleWordsSorted) {
@@ -607,17 +691,17 @@ function App() {
       } else if (wordIndex === 6) {
         // Son kelime - oyun bitti!
         const endTime = Date.now();
-        const timeTaken = Math.floor((endTime - gameState.startTime) / 1000);
-        showModal(
-          "🎉 Tebrikler!",
-          `Oyunu ${timeTaken} saniyede ve ${gameState.guessedLetters} harf ile tamamladınız!`
-        );
         setGameState({
           ...gameState,
           words: newWords,
           endTime,
           isGameComplete: true,
         });
+
+        // Results sayfasını göster
+        setTimeout(() => {
+          setShowResults(true);
+        }, 100);
         return;
       }
 
@@ -626,7 +710,6 @@ function App() {
         words: newWords,
         currentWordIndex: nextIndex,
         middleWordsSorted: newMiddleSorted,
-        guessedLetters: gameState.guessedLetters + gameState.wordLength,
         sortingMessageShown: newMiddleSorted ? false : true, // Eğer sıralama doğruysa reset, değilse mesaj gösterildi
       });
     } else {
@@ -726,6 +809,62 @@ function App() {
 
   const currentHint = gameState.words[gameState.currentWordIndex]?.hint || "";
 
+  // Results verilerini hazırla
+  const resultData: GameResultData | null = gameState.isGameComplete
+    ? {
+        gameName: "CrossClimb",
+        gameIcon: "⛰️",
+        isWin: true,
+        celebrationMessage: "🎉 Mükemmel!",
+        message: "Tüm merdiveni başarıyla tamamladınız!",
+        metrics: [
+          {
+            label: "Süre",
+            value: `${elapsedTime}s`,
+            icon: "⏱️",
+          },
+          {
+            label: "Tahmin Edilen Harf",
+            value: gameState.guessedLetters,
+            icon: "🔤",
+          },
+          {
+            label: "Kelime Uzunluğu",
+            value: `${gameState.wordLength} harf`,
+            icon: "📏",
+          },
+        ],
+      }
+    : null;
+
+  // Results gösteriliyorsa onu render et
+  if (showResults && resultData) {
+    return (
+      <Results
+        resultData={resultData}
+        onPlayAgain={() => {
+          setShowResults(false);
+          startGame();
+        }}
+        onShare={() => {
+          const message = `🎉 CrossClimb'da merdiveni tamamladım!\n\n⏱️ Süre: ${elapsedTime}s\n🔤 Harf: ${gameState.guessedLetters}\n\nSen de oyna: https://bip-crossclimb.netlify.app/`;
+          // BiP deep link
+          window.location.href = `bip://share?text=${encodeURIComponent(
+            message
+          )}`;
+        }}
+        onShareStatus={() => {
+          const statusText = `🎉 CrossClimb'da merdiveni tamamladım! ⛰️`;
+          // BiP status deep link
+          window.location.href = `bip://status?text=${encodeURIComponent(
+            statusText
+          )}`;
+        }}
+        activeGame="CrossClimb"
+      />
+    );
+  }
+
   return (
     <div className="App">
       <header>
@@ -774,6 +913,9 @@ function App() {
                 onDragStart={() => handleDragStart(index)}
                 onDragOver={(e) => handleDragOver(e, index)}
                 onDrop={(e) => handleDrop(e, index)}
+                onTouchStart={(e) => handleTouchStart(e, index)}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={(e) => handleTouchEnd(e, index)}
               >
                 {isDraggable && (
                   <span className="drag-handle" title="Sürükleyerek taşıyın">
